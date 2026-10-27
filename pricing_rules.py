@@ -1,12 +1,14 @@
+"""Pricing rules R4, R5 and R6 for the gym membership quote.
+"""
 from decimal import Decimal
 
 GROUP_MIN_MEMBERS = 2
-GROUP_DISCOUNT_FACTOR = Decimal("0.90") 
+GROUP_DISCOUNT_FACTOR = Decimal("0.90")  # 10% discount
 BIG_OFFER_THRESHOLD = Decimal("400")
 BIG_OFFER_DISCOUNT = Decimal("50")
 SMALL_OFFER_THRESHOLD = Decimal("200")
 SMALL_OFFER_DISCOUNT = Decimal("20")
-PREMIUM_SURCHARGE_FACTOR = Decimal("1.15") 
+PREMIUM_SURCHARGE_FACTOR = Decimal("1.15")  # +15%
 
 
 def _to_decimal(amount):
@@ -24,6 +26,7 @@ def apply_group_discount(amount, members):
 
 def apply_special_offer(amount):
     """R5: if amount > 400 subtract 50; otherwise if amount > 200 subtract 20.
+
     The two discounts never add up.
     """
     amount = _to_decimal(amount)
