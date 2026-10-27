@@ -1,4 +1,5 @@
-def test_initial():
-    assert True
+"""Módulo de prueba inicial para el taller de integración continua."""
 
-# prueba de accion
+def test_initial():
+    """Función de prueba básica que siempre pasa."""
+    assert True
